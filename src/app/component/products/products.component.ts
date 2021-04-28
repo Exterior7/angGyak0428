@@ -13,7 +13,11 @@ export class ProductsComponent implements OnInit {
 
   productList$: BehaviorSubject<Product[]> = this.pService.list$;
 
+  column: string = '';
 
+  // productObject: Product = new Product;
+
+  // keys: Array<string> = [];
 
   constructor(
     private pService: ProductService,
@@ -22,6 +26,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.pService.getAll()
+  //  this.keys = Object.keys(this.productObject)
   }
 
   onDelete(product: Product):void {
@@ -31,5 +36,9 @@ export class ProductsComponent implements OnInit {
   navigateUrl(product: Product):void {
   // localhost:4200/products/1
   this.router.navigateByUrl(`/products/${product.id}`)
+  }
+
+  sort(value: string):void {
+    this.column = value;
   }
 }

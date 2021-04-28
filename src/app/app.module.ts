@@ -10,6 +10,7 @@ import { HomeComponent } from './component/home/home.component';
 import { ProductsComponent } from './component/products/products.component';
 import { NavComponent } from './component/nav/nav.component';
 import { ProductsDetailComponent } from './component/products-detail/products-detail.component';
+import { SorterPipe } from './pipe/sorter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductsDetailComponent } from './component/products-detail/products-de
     HomeComponent,
     ProductsComponent,
     NavComponent,
-    ProductsDetailComponent
+    ProductsDetailComponent,
+    SorterPipe
   ],
   imports: [
     BrowserModule,

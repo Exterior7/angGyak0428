@@ -1,15 +1,17 @@
+{{ column }}
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>#</th>
-      <th>name</th>
-      <th>price</th>
-      <th>category</th>
-      <th></th>
+      <th (click)="sort('id')">#</th>
+      <!-- <th (click)="sort('id')">{{ keys[0] }}</th> -->
+      <th (click)="sort('name')">név</th>
+      <th (click)="sort('price')">ár</th>
+      <th (click)="sort('category')">kategória</th>
+      <!-- <th *ngFor="let key of keys" (click)="sort(key)">{{key}}</th> -->
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of productList$ | async">
+    <tr *ngFor="let product of productList$ | async | sorter:column">
       <td>{{ product.id }}</td>
       <td>{{ product.name }}</td>
       <td>{{ product.price }}</td>
@@ -23,6 +25,5 @@
         </button>
       </div>
     </tr>
-
   </tbody>
 </table>
