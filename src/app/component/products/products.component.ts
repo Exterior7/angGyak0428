@@ -20,4 +20,7 @@ export class ProductsComponent implements OnInit {
     this.pService.getAll()
   }
 
+  onDelete(product: Product):void {
+    this.pService.remove(product)
+  }
 }
