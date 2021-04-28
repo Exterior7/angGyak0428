@@ -13,7 +13,7 @@ export class SorterPipe implements PipeTransform {
       if (typeof a[key] === 'number' && typeof b[key] === 'number') {
         return a[key] - b[key];
       }
-      return a[key].localeCompare(b[key])
+      return a[key].toLowerCase().localeCompare(b[key], 'hu')
     });
   }
 }
