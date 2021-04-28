@@ -1,19 +1,30 @@
 <div class="container">
   <div class="col-6 offset-3">
-    <form #productForm="ngForm">
+    <form (ngSubmit)="onCreate(product)" #productForm="ngForm">
       <div class="form-group">
         <label for="name">Product name</label>
-        <input type="text" class="form-control" name="name" id="name" required>
-        <small [hidden]="productForm.controls?.name?.valid">validacio</small>
+        <input [(ngModel)]="product.name" type="text" class="form-control" name="name" id="name" required>
+        <small [hidden]="productForm.controls?.name?.valid">valid</small>
       </div>
       <div class="form-group">
         <label for="price">Price</label>
-        <input type="text" class="form-control" id="price" placeholder="Price">
+        <input [(ngModel)]="product.price" type="text" class="form-control" name="price" id="price">
+        <small [hidden]="productForm.controls?.price?.valid">valid</small>
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">Category</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Category">
+        <label for="category">Category</label>
+        <input [(ngModel)]="product.category" type="text" class="form-control" name="category" id="category">
+        <small [hidden]="productForm.controls?.category?.valid">valid</small>
+      </div>
+      <div>
+        <button
+        [disabled]="productForm.invalid"
+        type="submit"
+        class="btn btn-block btn-primary mt-5">
+        <i class="fa fa-save"></i>
+      </button>
       </div>
     </form>
   </div>
 </div>
+{{ product | json }}

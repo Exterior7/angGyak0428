@@ -24,8 +24,8 @@ export class ProductService {
     )
   }
 
-  get(product: Product):Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/${product.id}`)
+  get(id: string):Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/${id}`)
   }
 
   remove(product: Product):void {
